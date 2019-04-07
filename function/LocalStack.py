@@ -67,10 +67,7 @@ class RequestContext(object):
         self.session = "oo"
 
 
-xxx = LocalStack()
-xxx.push(RequestContext())
-
-
+# 获取request和session  
 def get_request_or_session(arg):
     ctx = xxx.top()
     return getattr(ctx, arg)
@@ -80,6 +77,8 @@ def get_request_or_session(arg):
 # print(obj.request)
 # print(obj.session)
 
+xxx = LocalStack()
+xxx.push(RequestContext())
 # 偏函数，自动传递参数
 request = functools.partial(get_request_or_session, 'request')
 session = functools.partial(get_request_or_session, 'session')
