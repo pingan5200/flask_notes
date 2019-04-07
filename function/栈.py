@@ -12,5 +12,6 @@ class Stack(object):
 _stack = Stack()
 _stack.push('a')
 _stack.push('b')
+# 后进先出  
 print(_stack.pop())
 print(_stack.pop())
